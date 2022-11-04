@@ -8,19 +8,7 @@ jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      
-      - name: actions-ecosystem/action-create-comment
-        uses: actions-ecosystem/action-create-comment@v1
-        id: get-merged-pull-request
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          
-        
-      - name: release-drafter/release-drafter
-        if: steps.get-merged-pull-request.outputs.labels != ''
-        uses: release-drafter/release-drafter@v5
+      - uses: release-drafter/release-drafter@v5
         # (Optional)
         # workflow 에서 여러 구성이 필요할 때 config-name 에 오버라이드 해줍니다.
         # 반드시 .github/ 에 위치해야합니다.
