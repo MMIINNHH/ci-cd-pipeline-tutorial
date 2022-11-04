@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: release-drafter/release-drafter
-        if: steps.get-merged-pull-request.outputs.labels == 'patch'
+        if: ${{ steps.get-merged-pull-request.outputs.labels == 'patch' }}
         uses: release-drafter/release-drafter@v5
         # (Optional)
         # workflow 에서 여러 구성이 필요할 때 config-name 에 오버라이드 해줍니다.
